@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --primary: 280 65% 60%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --accent: 280 65% 60%;
+  --accent-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 280 65% 60%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
+  color: hsl(var(--foreground));
+  min-height: 100vh;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  background-size: 200% 200%;
+  animation: gradient-x 15s ease infinite;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-border {
+  position: relative;
+  background: rgba(15, 12, 41, 0.8);
+  border-radius: 0.75rem;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.card-glow {
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
+  transition: all 0.3s ease;
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 40px rgba(102, 126, 234, 0.4);
+  transform: translateY(-2px);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
